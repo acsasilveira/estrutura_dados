@@ -93,13 +93,19 @@ class HashTable:
 
     def _hash(self, key):
         # Define a Função Hash usando módulo da capacidade. Observe que Key é Chave e Index é o Valor.
-        #COLOQUE SEU CÓDIGO AQUI
+        return key % self.buckets.capacity
 
     def insert(self, key):
-        #COLOQUE SEU CÓDIGO AQUI
+        idx = self._hash(key)
+        bucket = self.buckets.get(idx)
+        bucket.append(key)
 
     def search(self, key):
-        #COLOQUE SEU CÓDIGO AQUI
+        idx = self._hash(key)
+        bucket = self.buckets.get(idx)
+        if bucket.search(key):
+            return idx
+        return None
 
     def remove(self, key):
         idx = self._hash(key)
