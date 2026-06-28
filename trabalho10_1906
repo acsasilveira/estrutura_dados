@@ -3,8 +3,14 @@ def two_sum(numeros, alvo):
     mapa = {}  
 
     for i, valor_atual in enumerate(numeros):
-        # Fazer
-       
+        complemento = alvo - valor_atual
+        
+        if complemento in mapa:
+            return [mapa[complemento], i]
+            
+        mapa[valor_atual] = i
+        
+    return []        
 
 if __name__ == "__main__":
     numeros = [2, 7, 11, 15]
